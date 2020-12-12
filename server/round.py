@@ -3,6 +3,8 @@ Represents a round in the game, storing things like word, time, skips, drawing p
 """
 import time as t
 from _thread import *
+from .game import Game
+from .chat import Chat
 
 class Round(object):
 
@@ -13,6 +15,7 @@ class Round(object):
         self.skips = 0
         self.player_scores = {player : 0 for player in players} # puts a 0 in value for each player in the players list for this round -> 0
         self.time = 75
+        self.chat = Chat(self)
         start_new_thread(self.time_thread, ())
 
     def time_thread(self): # Runs ins thread to keep track of time!

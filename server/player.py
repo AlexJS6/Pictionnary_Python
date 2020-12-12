@@ -1,9 +1,12 @@
 """
 Represents a player object on the server side
 """
+from .game import Game
+
 
 class Player(object):
     def __init(self, ip, name):
+        self.game = None
         self.ip = ip
         self.name = name
         self.score = 0

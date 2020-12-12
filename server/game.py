@@ -36,7 +36,7 @@ class Game(object): # object, the parameter not needed
 
     def player_guess(self, player, guess): 
         """
-        Makes the player guess thr word
+        Makes the player guess the word
         """
         return self.round.guess(player, guess)
 

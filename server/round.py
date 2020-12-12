@@ -28,6 +28,20 @@ class Round(object):
         
         return False
 
+    def get_scores(self):
+        """
+        Returns all the player scores
+        """
+        return self.scores
+    
+    def get_score(self, player):
+        """
+        Gets a specific player's score
+        """
+        if player in self.player_scores:
+            return self.player_scores[player]
+        else:
+            raise Exception('Player not in score list!')
 
     def time_thread(self): 
         """

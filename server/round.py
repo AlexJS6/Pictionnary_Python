@@ -18,18 +18,38 @@ class Round(object):
         self.chat = Chat(self)
         start_new_thread(self.time_thread, ())
 
-    def time_thread(self): # Runs ins thread to keep track of time!
+    def skip(self): 
+        """
+        Tells if we gonna skip the round or not
+        """
+        self.skips += 1
+        if self.skips > len(self.players) -2:
+            return True
+        
+        return False
+
+
+    def time_thread(self): 
+        """
+        Runs ins thread to keep track of time!
+        """
         while self.time > 0:
             t.sleep(1) # sleeps 1s and decrements so thecountdown (75 -> 0)
             self.time -= 1
         self.end_round('Time is up!')
 
-    def guess(self, player, wrd): # Returns bool if player got the guess correct 
+    def guess(self, player, wrd): 
+        """
+        Returns bool if player got the guess correct 
+        """
         correct = wrd == self.word
         if correct:
             self.player_guessed.append(player)
 
-    def player_left(self, player): # removes player that left from scores, lists, tc
+    def player_left(self, player): 
+        """
+        removes player that left from scores, lists, tc
+        """
         if player in self.player_scores: # can we use object as dict key
             del player_scores[player]
 

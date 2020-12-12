@@ -8,7 +8,7 @@ from .round import Round
 
 class Game(object): # object, the parameter not needed
 
-    def __init__(self, id, players): 
+    def __init__(self, id, players, thread): 
         """
         When enough players, 
         a new game object is created and loop 
@@ -18,10 +18,10 @@ class Game(object): # object, the parameter not needed
         self.player = players
         self.words_used = []
         self.round = None
-        self.board = None
+        self.board = Board()
         self.player_draw_ind = 0 
-        self.start_new_round()
-        self.create_board() # If called in the methods need to call it here
+        self.connected_thread = thread
+        self.start_new_round() # If called in the methods need to call it here (every attribute)
 
     def start_new_round(self): 
         """
@@ -33,9 +33,6 @@ class Game(object): # object, the parameter not needed
         if self.player_draw_ind >= len(self.players):
             self.end_round()
             self.end_game()
-
-    def create_board(self):
-        self.board = Board()
 
     def player_guess(self, player, guess): 
         """
@@ -66,7 +63,7 @@ class Game(object): # object, the parameter not needed
         If the round ends call this
         """
         self.start_new_round()
-        self.create_board()
+        self.board.clear()
 
     def update_board(self, x, y, color):
         """

@@ -27,7 +27,7 @@ class Game(object): # object, the parameter not needed
         """
         Starts new round with a new word
         """
-        self.round = Round(self.get_word(), self.players[self.player_draw_ind])
+        self.round = Round(self.get_word(), self.players[self.player_draw_ind], self.players, self)
         self.player_draw_ind += 1
 
         if self.player_draw_ind >= len(self.players):
@@ -38,7 +38,7 @@ class Game(object): # object, the parameter not needed
         """
         Makes the player guess thr word
         """
-        pass
+        return self.round.guess(player, guess)
 
     def player_disconnected(self, player): 
         """

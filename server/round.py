@@ -8,7 +8,7 @@ from .chat import Chat
 
 class Round(object):
 
-    def __init__(self, word, player_drawing, players):
+    def __init__(self, word, player_drawing, players, game):
         self.word = word
         self.player_drawing = player_drawing
         self.player_guessed = [] # Who got it correct

@@ -5,6 +5,7 @@ between player, board, chat and round
 from .player import Player
 from .board import Board
 from .round import Round
+import random
 
 class Game(object): # object, the parameter not needed
 
@@ -79,11 +80,15 @@ class Game(object): # object, the parameter not needed
         """
         pass
 
-    def get_word(self): 
+    @staticmethod
+    def get_word(): 
         """
         gets word that has not yet been used
         """
-        pass
+        with open("words.txt", "r") as f:
+            words = f.readlines()
+            r = random.randint(0, len(words))
+            return words[r].strip()
 
 
 

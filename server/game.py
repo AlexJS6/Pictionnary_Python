@@ -1,7 +1,8 @@
 """
-Need to continue
 Handles operations related to game and connections
 between player, board, chat and round
+In this game 1 object will call another object that will call another etc
+-> Object Playyer to Object Game to Object Round
 """
 from .player import Player
 from .board import Board
@@ -25,6 +26,7 @@ class Game(object): # object, the parameter not needed
         self.connected_thread = thread
         self.start_new_round() # If called in the methods need to call it here (every attribute)
 
+
     def start_new_round(self): 
         """
         Starts new round with a new word
@@ -35,6 +37,7 @@ class Game(object): # object, the parameter not needed
         if self.player_draw_ind >= len(self.players):
             self.end_round()
             self.end_game()
+
 
     def player_guess(self, player, guess): 
         """

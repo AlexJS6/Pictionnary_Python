@@ -45,7 +45,7 @@ class Round(object):
 
     def time_thread(self): 
         """
-        Runs ins thread to keep track of time!
+        Runs in thread to keep track of time!
         """
         while self.time > 0:
             t.sleep(1) # sleeps 1s and decrements so thecountdown (75 -> 0)
@@ -65,7 +65,7 @@ class Round(object):
         removes player that left from scores, lists, tc
         """
         if player in self.player_scores: # can we use object as dict key
-            del player_scores[player]
+            del self.player_scores[player]
 
         if player in self.player_guessed:
             self.player_guessed.remove(player)

@@ -2,7 +2,8 @@
 Handles operations related to game and connections
 between player, board, chat and round
 In this game 1 object will call another object that will call another etc
--> Object Playyer to Object Game to Object Round
+-> Object Player to Object Game to Object Round
+Test if pushes work
 """
 from .player import Player
 from .board import Board
